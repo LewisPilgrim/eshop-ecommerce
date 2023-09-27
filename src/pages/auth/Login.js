@@ -11,13 +11,24 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase/config";
 import { toast } from "react-toastify";
-import Loading from "../../components/loader/Loader";
+import Loader from "../../components/loader/Loader";
+import { useSelector } from "react-redux";
+import { selectPreviousURL } from "../../redux/features/cartSlice";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
+
+  const previousURL = useSelector(selectPreviousURL)
+
+  const redirectUser = () => {
+    if (previousURL.includes("cart")) {
+      return navigate("/cart")
+    }
+    navigate("/")
+  }
 
   //Login
   const loginUser = (e) => {
@@ -26,14 +37,13 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        // const user = userCredential.user;
         setIsLoading(false);
         toast.success("Login successful!");
-        navigate("/");
+        redirectUser()
       })
       .catch((error) => {
-        const errorMessage = error.message;
-        toast.error(errorMessage);
+        toast.error(error.message);
         setIsLoading(false);
       });
   };
@@ -43,9 +53,9 @@ const Login = () => {
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        const user = result.user;
+        // const user = result.user;
         toast.success("Login successful!");
-        navigate("/");
+        redirectUser()
       })
       .catch((error) => {
         toast.error(error.message);
@@ -54,7 +64,7 @@ const Login = () => {
 
   return (
     <>
-      {isLoading && <Loading />}
+      {isLoading && <Loader />}
       <section className={`container ${styles.auth}`}>
         <div className={styles.img}>
           <img src={loginImg} alt='Login' width='400' />

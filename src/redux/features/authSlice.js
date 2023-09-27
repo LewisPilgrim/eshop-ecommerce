@@ -13,11 +13,11 @@ const authSlice = createSlice({
   reducers: {
     SET_ACTIVE_USER: (state, action) => {
         // console.log(action.payload);
-        const { email, userName, uid } = action.payload
+        const { email, userName, userID } = action.payload
         state.isLoggedIn = true
         state.email = email
         state.userName = userName
-        state.userID = uid
+        state.userID = userID
     },
     REMOVE_ACTIVE_USER: (state) => {
       state.isLoggedIn = false
