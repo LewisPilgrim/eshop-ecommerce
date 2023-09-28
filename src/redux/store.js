@@ -1,4 +1,4 @@
-import { configureStore, combineReducers, getDefaultMiddleware } from "@reduxjs/toolkit"
+import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import authReducer from "./features/authSlice"
 import productsReducer from "./features/productsSlice"
 import filterReducer from "./features/filterSlice"
@@ -17,10 +17,10 @@ const rootReducer = combineReducers({
 
 const store = configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-            serializableCheck: false
-        })
+    // middleware: (getDefaultMiddleware) =>
+    //     getDefaultMiddleware({
+    //         serializableCheck: false
+    //     })
 })
 
 export default store

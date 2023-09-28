@@ -21,7 +21,7 @@ const OrderHistory = () => {
 
   useEffect(() => {
     dispatch(STORE_ORDERS(data))
-  }, [data])
+  }, [data, dispatch])
 
   const handleClick = (id) => {
     navigate(`/order-details/${id}`)

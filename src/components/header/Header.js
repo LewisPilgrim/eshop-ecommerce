@@ -37,7 +37,7 @@ const Header = () => {
   useEffect(() => {
     dispatch(CALCULATE_TOTAL_QUANTITY())
     
-  }, [])
+  }, [dispatch])
 
   // Monitor currently signed in user
   useEffect(() => {

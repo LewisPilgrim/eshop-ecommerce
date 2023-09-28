@@ -25,6 +25,7 @@ const Slider = () => {
     useEffect(() => {
         if (autoScroll) {
             function auto() {
+                    // eslint-disable-next-line react-hooks/exhaustive-deps
                     slideInterval = setInterval(nextSlide, intervalTime)
                 }
                 auto()

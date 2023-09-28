@@ -99,6 +99,7 @@ const AddProducts = () => {
         desc: product.desc,
         createdAt: Timestamp.now().toDate()
       });
+      console.log(docRef);
       setIsLoading(false)
       setUploadProgress(0)
       setProduct({ ...initialState })

@@ -57,6 +57,7 @@ const Pagination = ({
             </li>
           )
         }
+        return undefined
       })}
       <li
         onClick={paginateNext}
