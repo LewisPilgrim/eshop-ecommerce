@@ -15,10 +15,10 @@ import OrderDetails from "./pages/orderDetails/OrderDetails";
 import ReviewProduct from "./components/reviewProducts/ReviewProduct";
 import NotFound from "./pages/notFound/NotFound";
 import { firebaseConfig } from "./firebase/config";
-import { initializeApp } from "firebase/app";
+import firebase from "firebase"
 
 function App() {
-  initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
   return (
     <>
