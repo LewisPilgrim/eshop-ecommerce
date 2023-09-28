@@ -14,12 +14,8 @@ import OrderHistory from "./pages/orderHistory/OrderHistory";
 import OrderDetails from "./pages/orderDetails/OrderDetails";
 import ReviewProduct from "./components/reviewProducts/ReviewProduct";
 import NotFound from "./pages/notFound/NotFound";
-import { firebaseConfig } from "./firebase/config";
-import { initializeApp } from "firebase/app";
 
 function App() {
-  initializeApp(firebaseConfig);
-
   return (
     <>
       <BrowserRouter>
